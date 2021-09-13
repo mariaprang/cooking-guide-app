@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:security="">
+<head th:fragment="navbar">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css"
+          th:href="@{css/style.css}" media="screen">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<div th:fragment="nav" class="header-wrap">
+    <header>
+        <div class="logo-wrap">
+            <a th:href="@{/index}"><img src="/images/cooking-pot.png"/></a>
+            <div class="pot-logo"> HAPPY POT</div>
+        </div>
+
+        <div class="search-wrap">
+            <form action="">
+                <input type="text" class="search-bar" placeholder="z.B. Pfankuchen, Lasagne"/>
+                <button class="search-button" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+        </div>
+
+        <div class="register-wrap">
+            <form action="/signin"></form>
+            <button type="submit" class="reg-button">
+                <i class="fas fa-user"></i>
+            </button>
+            <div sec:authorize="isAuthenticated()">
+                <span sec:authentication="name"></span>
+                <form name="logoutForm" th:action="@{/logout}" method="post">
+                    <input type="submit" value="Sign Out" />
+                </form>
+            </div>
+            <div sec:authorize="isAnonymous()">
+                <a th:href="@{/register}">Register</a>
+            </div>
+
+            </form>
+
+
+
+        </div>
+    </header>
+
+
+    <div class="navbar">
+        <div class="category-menu">
+            <a href="#">Recipes</a>
+            <div class="submenu">
+                <!--               <a th:href="@{/pathvars/single/{id}(id = ${item.id})}">-->
+                <a th:href="@{/showRecipesForCategory/{category}(category = 'regional')}">Regional</a>
+                <a th:href="@{/showRecipesForCategory/{category}(category = 'bakery')}">Bakery</a>
+                <a th:href="@{/showRecipesForCategory/{category}(category = 'seasonal')}">Seasonal</a>
+                <a th:href="@{/showRecipesForCategory/{category}(category = 'drinks')}">Drinks</a>
+            </div>
+        </div>
+
+        <a th:href="@{/community}">Community</a>
+        <a href="#"><span class="navbar-icon">
+                <img src="/images/favourite.png"/>
+                </span> Cookbook</a>
+
+        <a th:href="@{/showNewRecipeForm}" class="add-recipe">
+            <span class="navbar-icon">
+                <img src="/images/plus.png" width="16" height="16"/>
+            </span>Add new recipe</a>
+
+    </div>
+</div>
+</body>
+
+</html>

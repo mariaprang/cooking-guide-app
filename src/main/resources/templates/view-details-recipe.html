@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/header :: head">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link href="/fontawesome/css/all.css" rel="stylesheet">
+    <title>Recipe-Info-Page</title>
+</head>
+<body>
+
+<div th:replace="fragments/navbar::nav"></div>
+
+
+<div class="recipe-container">
+    <h1 th:text="${recipe.name}" class="food-title"></h1>
+    <img th:src="@{/images/{image}(image=${recipe.imageURL})}" class="food-image">
+    <div th:text="${recipe.originDescription}" class="food-originDescription"></div>
+    <br>
+    <label id="calories-label">Calories(kcal): </label>
+    <span th:text="${recipe.calories}" class="food-calories"></span>
+    <br>
+    <label id="portion-label">Portion: </label>
+    <span th:text="${recipe.portion}" class="food-portion"></span>
+
+
+    <h2 class="ingredient-title"> Ingredients </h2>
+    <!--        <div th:each ="ingredient : ${ingredients}" class ="food-ingredients">-->
+    <!--            <div th:text =${ingredient.ingredientName}></div>-->
+    <!--            <div th:text="${ingredient.amount}"></div>-->
+    <!--            <div th:text="${ingredient.unitOfMeasurements}"></div>-->
+    <!--        </div>-->
+
+    <table>
+<!--        <tr>-->
+<!--            <td>Ingridient</td>-->
+<!--            <td>Amount</td>-->
+<!--            <td>Measurement</td>-->
+<!--        </tr>-->
+        <tr th:each="ingredient : ${ingredients}">
+            <td th:text=${ingredient.ingredientName}></td>
+            <td th:text="${ingredient.amount}" style="text-align: right"></td>
+            <td th:text="${ingredient.unitOfMeasurements}"></td>
+        </tr>
+    </table>
+
+
+</div>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+
+</body>
+</html>

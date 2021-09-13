@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<!--adding Technical template to our html aka
+thymeleaf to make dynamic ***always has to be here***-->
+<head th:replace="fragments/header :: head">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link href="/fontawesome/css/all.css" rel="stylesheet"> <!--load all styles -->
+    <title>Cooking Guide App</title>
+</head>
+
+
+<body style="background-color: #EEEEEE;">
+    <form th:action="@{/registerNew}" class="reg-form">
+        <h2>Register here</h2>
+        <div class="column">
+            <input class="custom-input" type="text" placeholder="Full name here" name="fullname">
+            <input class="custom-input" type="text" placeholder="Location here" name="location">
+            <input class="custom-input" type="email" placeholder="Your email here" name="email">
+            <input class="custom-input" type="password" placeholder="Password here" name="password">
+             <div class="row" style="justify-content: space-evenly">
+
+                 <input type="radio" name="gender" value="male" id="male">
+                 <label class="custom-label" for="male">
+                     Male
+                 </label>
+
+                 <input type="radio" name="gender" value="female" id="female">
+                 <label class="custom-label" for="female">
+                     Female
+                 </label>
+             </div>
+            <input class="custom-input custom-button" type="submit" value="Submit">
+        </div>
+    </form>
+    <form class="reg-form" style="font-size: 15px;">
+        Already a user?
+        <a th:href="@{/login}">Log in</a>
+    </form>
+</body>
+</html>

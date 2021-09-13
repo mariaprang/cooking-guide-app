@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<!--adding Technical template to our html aka
+thymeleaf to make dynamic ***always has to be here***-->
+<head th:replace="fragments/header :: head">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link href="/fontawesome/css/all.css" rel="stylesheet"> <!--load all styles -->
+    <title>Cooking Guide App</title>
+</head>
+
+<body>
+
+    <div th:replace="fragments/navbar::nav"></div>
+
+<div class="container">
+<!--    <div class="lazyFun-container">-->
+<!--        <h3 class="funny-title">LazyFun days</h3>-->
+<!--        <a th:href="@{/...}"><img th:src="@{images/food-ingredient.jpg}" class="food-ing-img"></a>-->
+<!--        <br>-->
+<!--        <a th:href="@{/...}"><span class="recipe-title">Find me easy recipes</span></a>-->
+<!--    </div>-->
+
+<!--    <div class="food-container">-->
+<!--        <h3 class="funny-title">BusyHealthy days</h3>-->
+<!--        <a th:href="@{/...}"><img th:src="@{images/jar-food.jpg}" class="food-ing-img"></a>-->
+<!--        <br>-->
+<!--        <a th:href="@{/...}"><span class="recipe-title">Find me quick recipes</span></a>-->
+<!--    </div>-->
+
+<!--    <div class="asianFood-container">-->
+<!--        <h3 class="funny-title">AsianLove days</h3>-->
+<!--        <a th:href="@{/...}"><img th:src="@{images/asian-food.jpg}" class="food-ing-img"></a>-->
+<!--        <br>-->
+<!--        <a th:href="@{/...}"><span class="recipe-title">Find me unique recipes</span></a>-->
+<!--    </div>-->
+<!--</div>-->
+
+    <div class="food-container" th:each="recipe : ${recipes}">
+
+        <h3 class="funny-title" th:text="${recipe.name}"></h3>
+        <a th:href="@{/getRecipeById/{id}(id = ${recipe.id})}"><img th:src="@{/images/{image}(image=${recipe.imageURL})}" height="260" width="350"  class="food-ing-img"></a>
+          <br>
+        <div class="description" th:text="${recipe.originDescription}"></div>
+
+    </div>
+
+        </div>
+        <footer th:replace="fragments/footer :: footer">
+
+        </footer>
+
+        </body>
+        </html>

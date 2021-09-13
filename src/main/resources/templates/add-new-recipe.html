@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<!--adding Technical template to our html aka
+thymeleaf to make dynamic ***always has to be here***-->
+<head th:replace="fragments/header :: head">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link href="/fontawesome/css/all.css" rel="stylesheet"> <!--load all styles -->
+    <title>Cooking Guide App</title>
+</head>
+<body>
+
+<div th:replace="fragments/navbar::nav"></div>
+
+<div class="container-ingridients">
+    <form th:action="@{/add-new-recipe}" class="new-recipe-form" id="recipe-form">
+        <div class="row">
+            <h1>Fill in the form</h1>
+            <input class="submit-new" type="submit" value="Add recipe">
+        </div>
+        <input class="text-newRecipe" type="text" name="recipeName" placeholder="What is the recipe title?">
+        <input class="text-newRecipe" type="number" name="recipePortion" placeholder="How many portions is it?">
+        <textarea class="text-newRecipe" type="text" name="description"
+                  placeholder="How to prepare this recipe?"></textarea>
+        <div class="add-ingredients-wrap">
+            <input type="text" id="ingredient-input" class="text-newRecipe" style="width: 60%;"
+                   placeholder="Add ingredient..">
+            <input type="number" id="ingredient-amount" class="text-newRecipe" placeholder="How much of?">
+            <select id="select-dropdown" style="vertical-align: middle" class="unit-measurements">
+                <option>GR</option>
+                <option>KG</option>
+                <option>TSP</option>
+                <option>TBSP</option>
+                <option>CUP</option>
+                <option>LTR</option>
+                <option>ML</option>
+                <option>HANDFUL</option>
+                <option>PINCH</option>
+                <option>PIECES</option>
+                <option>PIECE</option>
+                <option>CLOVE</option>
+                <option>CLOVES</option>
+            </select>
+
+            <select id="category-dropdown" style="vertical-align: middle" name="category" class="unit-measurements">
+                <option>Regional</option>
+                <option>Bakery</option>
+                <option>Seasonal</option>
+                <option>Drinks</option>
+            </select>
+
+            <img style="vertical-align: middle" onclick="addIngredient();" class="add-ingredient-icon-img"
+                 src="/images/plus.png" width="30" height="30"/>
+        </div>
+        <input type="hidden" id="ingredient-titles" name="ingrTitles">
+        <input type="hidden" id="ingredient-units" name="ingrUnits">
+        <input type="hidden" id="ingredient-amounts" name="ingrAmounts">
+    </form>
+    <div id="ingredient-list"></div>
+</div>
+
+
+<footer th:replace="fragments/footer :: footer"></footer>
+
+
+<script>
+
+    var ingrTitles = [];
+    var ingrUnits = [];
+    var ingrAmounts = [];
+
+    function addIngredient() {
+
+        var ingredientTitle = document.getElementById("ingredient-input").value;
+        ingrTitles.push(ingredientTitle);
+
+        var ingredientAmount = document.getElementById("ingredient-amount").value;
+        ingrAmounts.push(ingredientAmount);
+
+        var selectElement = document.getElementById("select-dropdown");
+        var unitOfMeasurement = selectElement.options[selectElement.selectedIndex].text;
+        ingrUnits.push(unitOfMeasurement);
+
+        var ingredientAdded = document.createElement("div");
+        ingredientAdded.id = "ingredient-"+ingredientTitle;
+        ingredientAdded.innerHTML = ingredientAmount + " " + unitOfMeasurement + " " + ingredientTitle + "<div class='icon-minus' id='icon-minus-"+ingredientTitle+"'></div>";
+        ingredientAdded.classList.add("ingredient-added");
+        document.getElementById("ingredient-list").appendChild(ingredientAdded);
+        document.getElementById("ingredient-input").value = "";
+        document.getElementById("ingredient-amount").value = "";
+
+        document.getElementById("icon-minus-"+ingredientTitle).onclick = function (){
+            document.getElementById("ingredient-list").removeChild(ingredientAdded);
+        }
+
+        document.getElementById("ingredient-titles").value = ingrTitles;
+        document.getElementById("ingredient-units").value = ingrUnits;
+        document.getElementById("ingredient-amounts").value = ingrAmounts;
+    }
+
+</script>
+
+</body>
+</html>

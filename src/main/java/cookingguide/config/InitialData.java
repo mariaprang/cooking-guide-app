@@ -34,9 +34,12 @@ public class InitialData {
     @Autowired
     PasswordEncoder passwordEncoder;
 
-    //add the @PostConstruct
+    /**
+     * PostConstruct method
+     */
     @PostConstruct
     public void initializedInfo(){
+
 
         Recipe recipe1 = new Recipe("Bibimbap", 2, 1000, "Korean Dish With Beef And Veggies","bibimbap.jpg", "Regional");
         Ingredient ingredient1 = new Ingredient("Beef Steak(s)", 250, UnitOfMeasurements.GR);
@@ -54,6 +57,7 @@ public class InitialData {
         Ingredient ingredient13 = new Ingredient("Garlic(s)", 2, UnitOfMeasurements.Cloves);
         Ingredient ingredient14 = new Ingredient("Pepper", 1.5, UnitOfMeasurements.TSP);
         Ingredient ingredient15 = new Ingredient("Apple(or Korean Pear)", 1, UnitOfMeasurements.Piece);
+        Ingredient ingredient16 = new Ingredient("Peach(or Korean Pear)", 1, UnitOfMeasurements.Piece);
 
         recipe1.getIngredientList().add(ingredient1);
         recipe1.getIngredientList().add(ingredient2);

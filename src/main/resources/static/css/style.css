@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
-body{
+
+body {
     padding: 0;
     margin: 0;
 }
+
 /* HEADER STYLE START */
 .header-wrap {
     /*the first 3 line is to create the shadow under the header wrap*/
@@ -46,7 +48,8 @@ header {
     padding-top: 20px;
     width: 20%;
 }
-.add-recipe{
+
+.add-recipe {
 
 
 }
@@ -89,12 +92,13 @@ header {
     border: none;
     margin-left: 0;
 }
+
 .reg-button:hover,
 .search-button:hover {
     cursor: pointer;
 }
 
-.navbar{
+.navbar {
     width: 40%;
     margin: 10px auto;
     display: flex;
@@ -105,18 +109,18 @@ header {
 
 }
 
-.navbar a{
+.navbar a {
     text-decoration: none;
     text-transform: uppercase;
     color: #666666;
 
 }
 
-.navbar-icon img{
+.navbar-icon img {
     width: 16px;
 }
 
-.navbar-icon{
+.navbar-icon {
     margin-top: 10px;
 }
 
@@ -137,6 +141,7 @@ header {
     justify-content: space-evenly;
 
 }
+
 .container {
     /*max-width: 400px;*/
     display: flex;
@@ -149,22 +154,26 @@ header {
     background-color: #FFFFFF;
 }
 
-.container a{
+.container a {
     text-decoration: none;
 }
-.food-container{
+
+.food-container {
     margin-left: 20px;
 }
-.funny-title{
+
+.funny-title {
     font-family: 'Open Sans', sans-serif;
     font-size: 25px;
 
 }
+
 .food-ing-img {
     width: 350px;
     margin-bottom: 10px;
 }
-.recipe-title{
+
+.recipe-title {
     font-family: 'Open Sans', sans-serif;
     font-weight: bolder;
     font-size: 16px;
@@ -172,89 +181,65 @@ header {
     color: black;
 
 }
+
 /*INDEX STYLE END*/
 
 /* Detailed Recipe Style*/
 
-.recipe-container{
+.recipe-container {
     width: fit-content;
     margin: 0 auto;
     margin-bottom: 100px;
 }
 
-.food-title, ingredient-title{
-    margin: 30px 0 ;
+.food-title, ingredient-title {
+    margin: 30px 0;
     font-family: 'Open Sans', sans-serif;
 
 }
-.food-image{
+
+.food-image {
 
 }
-.food-originDescription{
+
+.food-originDescription {
     font-size: 25px;
     font-family: 'Open Sans', sans-serif;
 
 }
-#calories-label{
+
+#calories-label {
     font-family: 'Open Sans', sans-serif;
     font-size: 20px;
 }
-#portion-label{
+
+#portion-label {
     font-family: 'Open Sans', sans-serif;
     font-size: 20px;
 }
-.food-calories{
+
+.food-calories {
     font-family: 'Open Sans', sans-serif;
     font-size: 20px;
 }
-.food-portion{
+
+.food-portion {
     font-family: 'Open Sans', sans-serif;
     font-size: 20px;
 }
-.recipe-container h2{
+
+.recipe-container h2 {
     font-family: 'Open Sans', sans-serif;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* FOOTER STYLE START */
-.footer-wrap{
+.footer-wrap {
     /*position: absolute;*/
     font-family: "Patrick Hand", cursive;
-    width:100%;
+    width: 100%;
     height: 200px;
-    background-color: #e68a00 ;
+    background-color: #e68a00;
     padding: 10px;
 
     -webkit-box-shadow: 0 8px 6px -6px lightgrey;
@@ -263,7 +248,7 @@ header {
 
 }
 
-.footer-navigation-wrap{
+.footer-navigation-wrap {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -272,15 +257,18 @@ header {
     color: #000000;
     margin-top: 20px;
 }
-.footer-navigation-wrap a{
+
+.footer-navigation-wrap a {
     font-weight: bolder;
     text-decoration: none;
 }
+
 /* with :visited you can change the default design of a */
-.footer-navigation-wrap a:visited{
+.footer-navigation-wrap a:visited {
     color: #000000;
 }
-.social-media-icon-wrap{
+
+.social-media-icon-wrap {
     width: 100%;
     text-align: center;
     justify-content: center;
@@ -288,22 +276,27 @@ header {
     flex-direction: row;
     margin-top: 20px;
 }
-.footer-wrap i{
+
+.footer-wrap i {
     color: #000000;
 }
-#facebook-icon{
+
+#facebook-icon {
     font-size: 30px;
 }
-#instagram-icon{
+
+#instagram-icon {
     font-size: 30px;
     margin-left: 40px;
 }
-#twitter-icon{
+
+#twitter-icon {
     font-size: 30px;
     margin-left: 40px;
 
 }
-.copyright-wrap{
+
+.copyright-wrap {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -312,15 +305,16 @@ header {
     color: #000000;
     margin-top: 20px;
 }
-#copyright-icon{
+
+#copyright-icon {
     font-size: 15px;
-    margin:7px;
+    margin: 7px;
 }
 
 /* FOOTER STYLE ENDS */
 
 
-.food-ingredients{
+.food-ingredients {
     width: 50%;
     justify-content: space-around;
     display: flex;
@@ -343,26 +337,27 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 
-.new-recipe-form{
+.new-recipe-form {
     width: 80%;
     display: flex;
     margin: 5% auto;
     flex-direction: column;
 }
 
-.new-recipe-form input{
+.new-recipe-form input {
     padding: 10px 0;
     font-size: 18px;
     margin: 10px 0;
 }
 
-.text-newRecipe{
+.text-newRecipe {
     padding: 10px 0;
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
     margin: 10px 0;
 }
-.submit-new{
+
+.submit-new {
     padding: 10px 50px !important;
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
@@ -371,60 +366,61 @@ tr:nth-child(even) {
     color: white;
 
 }
-.submit-new:hover{
-    background-color:#e68a00;
+
+.submit-new:hover {
+    background-color: #e68a00;
 
 }
 
 input[type="submit"] {
-    border:none;
+    border: none;
 }
 
 input[type="submit"]:hover {
-  cursor: pointer;
-}
-
-.unit-measurements{
-    vertical-align: middle;
-}
-
-.add-ingredient-icon-img{
-    margin-left: 20px;
-}
-
-.add-ingredient-icon-img:hover{
     cursor: pointer;
 }
 
-.row{
+.unit-measurements {
+    vertical-align: middle;
+}
+
+.add-ingredient-icon-img {
+    margin-left: 20px;
+}
+
+.add-ingredient-icon-img:hover {
+    cursor: pointer;
+}
+
+.row {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.row h1{
+.row h1 {
     font-family: 'Open Sans', sans-serif;
 }
 
-#ingredient-list{
+#ingredient-list {
     width: 80%;
     margin: 0 auto 10% auto;
 }
 
-.ingredient-added{
+.ingredient-added {
     font-family: 'Open Sans', sans-serif;
     font-size: 18px;
     /*background-color: cornsilk;*/
     padding: 2px 5px;
-    margin:5px 0;
+    margin: 5px 0;
     width: fit-content;
     color: black;
     display: flex;
     flex-direction: row;
 }
 
-.icon-minus::after{
+.icon-minus::after {
     display: inline-block;
     font-style: normal;
     font-variant: normal;
@@ -436,32 +432,34 @@ input[type="submit"]:hover {
     margin-left: 5px;
 }
 
-.icon-minus:hover{
+.icon-minus:hover {
     cursor: pointer;
 }
 
-.submenu{
+.submenu {
     /*//display: flex;*/
     flex-direction: column;
     display: none;
     background-color: #fff;
-    -webkit-box-shadow: -1px 1px 8px 7px rgba(0,0,0,0.17);
-    box-shadow: -1px 1px 8px 7px rgba(0,0,0,0.17);
+    -webkit-box-shadow: -1px 1px 8px 7px rgba(0, 0, 0, 0.17);
+    box-shadow: -1px 1px 8px 7px rgba(0, 0, 0, 0.17);
     position: absolute;
     padding: 0 10px;
 }
 
-.submenu a{
-    padding: 10px ;
+.submenu a {
+    padding: 10px;
 }
-.category-menu{
+
+.category-menu {
     position: relative;
 }
-.category-menu:hover .submenu{
+
+.category-menu:hover .submenu {
     display: flex;
 }
 
-.column{
+.column {
     display: flex;
     flex-direction: column;
 }
@@ -471,18 +469,18 @@ input[type="submit"]:hover {
 /*    margin: 10% auto;*/
 /*}*/
 
-.custom-input{
+.custom-input {
     margin: 20px 0;
 }
 
-.reg-form{
+.reg-form {
     width: fit-content;
     margin: 0 auto;
     font-size: 40px;
     font-family: 'Open Sans', sans-serif;
 }
 
-.custom-input{
+.custom-input {
     display: block;
     width: 100%;
     padding: .5rem .75rem;
@@ -492,9 +490,9 @@ input[type="submit"]:hover {
     background-color: #fff;
     background-image: none;
     background-clip: padding-box;
-    border: 1px solid rgba(0,0,0,.15);
+    border: 1px solid rgba(0, 0, 0, .15);
     border-radius: .25rem;
-    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
     position: relative;
     box-sizing: border-box;
     height: auto;
@@ -503,18 +501,18 @@ input[type="submit"]:hover {
     background-color: rgb(232, 240, 254);
 }
 
-.custom-button{
+.custom-button {
     color: #fff;
     background-color: #007bff;
     border-color: #007bff;
 }
 
-.reg-form a{
+.reg-form a {
     text-decoration: none;
     color: #007bff;
 }
 
-.custom-label{
+.custom-label {
     font-size: 20px;
 }
 
@@ -530,23 +528,44 @@ input[type="submit"]:hover {
 /*    display: block;*/
 /*}*/
 
-.community{
+.community {
     width: 80% !important;
 }
 
 .users-box {
-    border: 1px solid black;
     width: 27%;
     text-align: center;
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;
+    display: inline-block;
 }
 
 
-.profile-pic{
+.profile-pic {
     width: 40%;
 }
 
-.badge{
+.badge {
+    width: fit-content;
+    padding: 5px;
+    margin: 0 auto;
+    border-radius: 5px;
+    color: white;
+}
 
+.users-box :nth-child(3n)::after {
+    content: '';
+    background-color: red;
+}
+
+.newbie {
+    background-color: green;
+}
+
+.intermediate {
+    background-color: orange;
+}
+
+.advanced {
+    background-color: blue;
 }

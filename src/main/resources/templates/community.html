@@ -9,7 +9,7 @@ thymeleaf to make dynamic ***always has to be here***-->
     <title>Cooking Guide App</title>
 </head>
 
-<body>
+<body onload="addColorClassDynamically();">
 
 <div th:replace="fragments/navbar::nav"></div>
 
@@ -23,6 +23,24 @@ thymeleaf to make dynamic ***always has to be here***-->
 <footer th:replace="fragments/footer :: footer">
 
 </footer>
+
+<script>
+    function addColorClassDynamically() {
+        var items = document.getElementsByClassName("badge");
+        for (var i = 0; i < items.length; i++) {
+            var itemText = items[i].innerHTML;
+            if (itemText == "Newbie") {
+                items[i].classList.add("newbie");
+            }
+            if (itemText == "Intermediate") {
+                items[i].classList.add("intermediate");
+            }
+            if (itemText == "Advanced") {
+                items[i].classList.add("advanced");
+            }
+        }
+    }
+</script>
 
 </body>
 </html>

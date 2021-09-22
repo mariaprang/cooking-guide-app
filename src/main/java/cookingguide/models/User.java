@@ -38,6 +38,12 @@ public class User implements UserDetails {
     @Column(name="profileImage")
     private String imagePath;
 
+    @Column(name="countOfRecipes")
+    private int recipeCount;
+
+    @OneToMany(mappedBy="user")
+    private Set<Recipe> recipes;
+
     public User(String fullName, String username, String password, String location, String gender) {
         this.fullName = fullName;
         this.username = username;
@@ -54,6 +60,8 @@ public class User implements UserDetails {
         }else{
             this.imagePath = "/images/female-profile.png";
         }
+        this.recipeCount = 0;
+        this.recipes = new HashSet<>();
     }
 
     public User(){
@@ -62,6 +70,23 @@ public class User implements UserDetails {
         this.credentialsNonExpired = true;
         this.isEnlabled = true;
         this.badge = Badge.NEWBIE;
+        this.recipeCount = 0;
+    }
+
+    public Set<Recipe> getRecipes() {
+        return recipes;
+    }
+
+    public void setRecipes(Set<Recipe> recipes) {
+        this.recipes = recipes;
+    }
+
+    public int getRecipeCount() {
+        return recipeCount;
+    }
+
+    public void setRecipeCount(int recipeCount) {
+        this.recipeCount = recipeCount;
     }
 
     @Transient
@@ -81,10 +106,10 @@ public class User implements UserDetails {
         return Arrays.asList(new SimpleGrantedAuthority("USER"));
     }
 
-    @OneToMany(
-            targetEntity = Recipe.class, mappedBy = "user",
-            fetch = FetchType.LAZY)
-    private List<Recipe> recipes = new ArrayList<>();
+//    @OneToMany(
+//            targetEntity = Recipe.class, mappedBy = "user",
+//            fetch = FetchType.LAZY)
+//    private List<Recipe> recipes = new ArrayList<>();
 
     public String getFullName() {
         return fullName;

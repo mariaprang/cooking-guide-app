@@ -17,6 +17,7 @@ thymeleaf to make dynamic ***always has to be here***-->
     <div class="users-box" th:each="user : ${allUsers}">
         <img class="profile-pic" th:src="${user.imagePath}">
         <div class="profile-name" th:text="${user.fullName}"></div>
+        <div th:text="${user.recipeCount}"></div>
         <div class="badge" th:text="${user.badge}"></div>
     </div>
 </div>

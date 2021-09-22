@@ -5,6 +5,7 @@ import cookingguide.repositories.RecipeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -25,6 +26,21 @@ public class RecipeService {
 
     public Recipe getRecipeById(Integer id){
         return recipeRepository.findById(id).get();
+    }
+
+    public List<Recipe> getRecipesByUsername(String username){
+        List<Recipe> allRecipes = getAllRecipes();
+        List<Recipe> filteredRecipes = new ArrayList<>();
+        for(Recipe recipe : allRecipes){
+            if(recipe.getUser().getUsername().equals(username)){
+                filteredRecipes.add(recipe);
+            }
+        }
+        return filteredRecipes;
+    }
+
+    public int getRecipeCountByUsername(String username){
+        return getRecipesByUsername(username).size();
     }
 
 

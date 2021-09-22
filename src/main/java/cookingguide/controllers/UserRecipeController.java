@@ -59,12 +59,8 @@ public class UserRecipeController {
 
         Authentication authenticationDetails = SecurityContextHolder.getContext().getAuthentication();
         String username = authenticationDetails.getPrincipal().toString();
-        System.out.println("Username: "+username);
         User user = userService.loadUserByUsername(username);
-
-        System.out.println(user);
-
-
+        recipe.setUser(user);
         recipe.setIngredientList(ingredientList);
         recipeService.saveRecipe(recipe);
         return "redirect:/index";

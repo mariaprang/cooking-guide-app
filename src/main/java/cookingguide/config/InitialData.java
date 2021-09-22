@@ -131,19 +131,26 @@ public class InitialData {
 
         User user = new User("Tom Hanks", "test@gmail.com",
                 passwordEncoder.encode("test"), "USA, NY","Male" );
-
+        user.getRecipes().add(recipe1);
+        recipe1.setUser(user);
         userService.saveUser(user);
 
         User user2 = new User("Martha Stewart", "test2@gmail.com",
                 passwordEncoder.encode("test2"), "USA, NY","Female" );
 
+        user2.getRecipes().add(recipe2);
+        recipe2.setUser(user2);
         userService.saveUser(user2);
 
 
         User user3 = new User("Henry Marsch", "test3@gmail.com",
                 passwordEncoder.encode("test3"), "USA, NY","Male" );
         user3.setBadge(Badge.INTERMEDIATE);
+
+        user3.getRecipes().add(recipe3);
+
         userService.saveUser(user3);
+        recipe3.setUser(user3);
 
         User user4 = new User("Anna Johnson", "test4@gmail.com",
                 passwordEncoder.encode("test4"), "USA, NY","Female" );
@@ -158,11 +165,7 @@ public class InitialData {
 
         User user6 = new User("Maria Prangishvili", "test6@gmail.com",
                 passwordEncoder.encode("test6"), "USA, NY","Female" );
-
         userService.saveUser(user6);
-
-
-
     }
 
 }

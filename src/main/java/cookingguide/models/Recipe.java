@@ -40,7 +40,8 @@ public class Recipe {
 
 
     @ManyToOne()
-    @JoinColumn(name = "rec_user_id", referencedColumnName = "user_id")
+    @JoinColumn(name = "user_id", insertable = false, updatable = false)
+//    @JoinColumn(name = "rec_user_id", referencedColumnName = "user_id")
     private User user;
 
     public Recipe() {
@@ -146,13 +147,11 @@ public class Recipe {
         return Objects.hash(id, name, portion, calories, originDescription, ingredientList);
     }
 
-    //    public String getImagePath() {
-//        return imagePath;
-//    }
-//
-//    public void setImagePath(String imagePath) {
-//        this.imagePath = imagePath;
-//    }
+    public void setUser(User user) {
+        this.user = user;
+    }
 
-
+    public User getUser() {
+        return user;
+    }
 }

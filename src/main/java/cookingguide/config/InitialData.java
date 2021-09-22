@@ -148,9 +148,9 @@ public class InitialData {
         user3.setBadge(Badge.INTERMEDIATE);
 
         user3.getRecipes().add(recipe3);
-
-        userService.saveUser(user3);
         recipe3.setUser(user3);
+        userService.saveUser(user3);
+
 
         User user4 = new User("Anna Johnson", "test4@gmail.com",
                 passwordEncoder.encode("test4"), "USA, NY","Female" );

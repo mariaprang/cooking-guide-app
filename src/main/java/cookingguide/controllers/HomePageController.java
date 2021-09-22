@@ -25,6 +25,7 @@ public class HomePageController {
         topThreeRecipes.add(allRecipes.get(1));
         topThreeRecipes.add(allRecipes.get(2));
         model.addAttribute("recipes",topThreeRecipes );
+        model.addAttribute("category", "All Recipes");
         return "index";
     }
 
@@ -47,6 +48,7 @@ public class HomePageController {
         }
 
         model.addAttribute("recipes", recipesByCategory);
+        model.addAttribute("category", category);
 
         return "index";
     }

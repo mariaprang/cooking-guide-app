@@ -11,44 +11,26 @@ thymeleaf to make dynamic ***always has to be here***-->
 
 <body>
 
-    <div th:replace="fragments/navbar::nav"></div>
+<div th:replace="fragments/navbar::nav"></div>
+
+<div class="recipe-title" th:text="${category}"></div>
 
 <div class="container">
-<!--    <div class="lazyFun-container">-->
-<!--        <h3 class="funny-title">LazyFun days</h3>-->
-<!--        <a th:href="@{/...}"><img th:src="@{images/food-ingredient.jpg}" class="food-ing-img"></a>-->
-<!--        <br>-->
-<!--        <a th:href="@{/...}"><span class="recipe-title">Find me easy recipes</span></a>-->
-<!--    </div>-->
-
-<!--    <div class="food-container">-->
-<!--        <h3 class="funny-title">BusyHealthy days</h3>-->
-<!--        <a th:href="@{/...}"><img th:src="@{images/jar-food.jpg}" class="food-ing-img"></a>-->
-<!--        <br>-->
-<!--        <a th:href="@{/...}"><span class="recipe-title">Find me quick recipes</span></a>-->
-<!--    </div>-->
-
-<!--    <div class="asianFood-container">-->
-<!--        <h3 class="funny-title">AsianLove days</h3>-->
-<!--        <a th:href="@{/...}"><img th:src="@{images/asian-food.jpg}" class="food-ing-img"></a>-->
-<!--        <br>-->
-<!--        <a th:href="@{/...}"><span class="recipe-title">Find me unique recipes</span></a>-->
-<!--    </div>-->
-<!--</div>-->
 
     <div class="food-container" th:each="recipe : ${recipes}">
 
         <h3 class="funny-title" th:text="${recipe.name}"></h3>
-        <a th:href="@{/getRecipeById/{id}(id = ${recipe.id})}"><img th:src="@{/images/{image}(image=${recipe.imageURL})}" height="260" width="350"  class="food-ing-img"></a>
-          <br>
+        <a th:href="@{/getRecipeById/{id}(id = ${recipe.id})}"><img
+                th:src="@{/images/{image}(image=${recipe.imageURL})}" height="260" width="350" class="food-ing-img"></a>
+        <br>
         <div class="description" th:text="${recipe.originDescription}"></div>
 
     </div>
 
-        </div>
-        <footer th:replace="fragments/footer :: footer">
+</div>
+<footer th:replace="fragments/footer :: footer">
 
-        </footer>
+</footer>
 
-        </body>
-        </html>
+</body>
+</html>
